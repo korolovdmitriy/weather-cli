@@ -20,4 +20,15 @@ function printHelp () {
     );
 }
 
-export { printError, printSuccess, printHelp };
+function printWeather (res, icon) {
+    console.log(
+        dedent`${chalk.bgYellow(' WEATHER ')} in ${res.name}
+        ${icon}   ${res.weather[0].description}
+        Temperature: ${res.main.temp} (fells like ${res.main.feels_like})
+        Humidity: ${res.main.humidity}%
+        Wind speed: ${res.wind.speed}
+        `
+    );
+}
+
+export { printError, printSuccess, printHelp, printWeather };
